@@ -10,14 +10,14 @@ case class PhoneBook(contacts: List[Contact], name: String) {
     * @param contact Contact to add to the phone book
     * @return PhoneBook
     */
-  def add(contact: Contact): PhoneBook = ???
+  def add(contact: Contact): PhoneBook = this.copy(contacts = contact :: contacts)
 
   /**
     * Exercise 2
     * Return a list of contacts, sorted by name, a-z
     * @return A List of Contacts
     */
-  def sortByName: List[Contact] = ???
+  def sortByName: List[Contact] = contacts.sortBy(_.name)
 
   /**
     * Exercise 3
@@ -26,7 +26,7 @@ case class PhoneBook(contacts: List[Contact], name: String) {
     * @param name Name of contact to be deleted
     * @return
     */
-  def delete(name: String): PhoneBook = ???
+  def delete(name: String): PhoneBook = this.copy(contacts = contacts.filterNot(_.name == name))
 
   /**
     * Exercise 4
@@ -35,7 +35,7 @@ case class PhoneBook(contacts: List[Contact], name: String) {
     * @param name Partial name to search for
     * @return List of contacts that matches
     */
-  def search(name: String): List[Contact] = ???
+  def search(name: String): List[Contact] = contacts.filter(_.name.contains(name))
 
   /**
     * Exercise 5
@@ -44,7 +44,7 @@ case class PhoneBook(contacts: List[Contact], name: String) {
     * @param other Another phonebook to concat with this
     * @return A new PhoneBook
     */
-  def concat(other: PhoneBook): PhoneBook = ???
+  def concat(other: PhoneBook): PhoneBook = this.copy(contacts ++ other.contacts)
 
   /**
     * Exercise 6
@@ -53,7 +53,7 @@ case class PhoneBook(contacts: List[Contact], name: String) {
     * @param name Name of contact
     * @return Maybe a contact
     */
-  def findByName(name: String): Option[Contact] = ???
+  def findByName(name: String): Option[Contact] = contacts.find(_.name == name)
 
   /**
     * Exercise 7
@@ -62,7 +62,7 @@ case class PhoneBook(contacts: List[Contact], name: String) {
     * @param number the number to search for
     * @return Maybe a Contact
     */
-  def findByNumber(number: String): Option[Contact] = ???
+  def findByNumber(number: String): Option[Contact] = contacts.find(_.phone == number)
 
   /**
     * Exercise 8
@@ -72,7 +72,7 @@ case class PhoneBook(contacts: List[Contact], name: String) {
     * @param name Name to search for
     * @return The number of the contact found
     */
-  def findNr(name: String): String = ???
+  def findNr(name: String): String = findByName(name).map(_.phone).getOrElse("Not found")
 
   /**
     * Exercise 9
@@ -82,7 +82,7 @@ case class PhoneBook(contacts: List[Contact], name: String) {
     * @param number Phone number to search for
     * @return Name of the contact found
     */
-  def findName(number: String): String = ???
+  def findName(number: String): String = findByNumber(number).map(_.name).getOrElse("No contact")
 
 
   /**
