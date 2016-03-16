@@ -87,7 +87,9 @@ The same goes for any of the advanced stuff - macros, higher kinded types etc. b
   * [scala-lang.org](http://docs.scala-lang.org/style/)
   * [Twitter](https://twitter.github.io/effectivescala/) 
 * Getting help
-  * [Stack overflow](stackoverflow.com)
+  * [Stack overflow](http://stackoverflow.com)
+  * [Stack overflow FAQ](http://stackoverflow.com/tags/scala/info)
+  * To search for Scala symbols such as "=>" in Stack Overflow, you can use [symbolhound search](http://symbolhound.com/)
   * [Scala user mailing list](https://groups.google.com/forum/#!forum/scala-user)
   * [Scala user gitter channel](https://gitter.im/scala/scala) - chat
   
